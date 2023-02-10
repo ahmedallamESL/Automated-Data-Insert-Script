@@ -47,13 +47,6 @@ namespace AutomatedDataInsert
                         3 => Altitude = (levelFourInitialAltitudeValue+=36),
                         _ => Altitude += 0,
                     };
-                    //if (i == 2)
-                    //    Altitude += levelThreeFractionFromLevelTwo;
-                    //if (i == 3)
-                    //{
-                    //    levelFourInitialAltitudeValue += 36;
-                    //    Altitude = levelFourInitialAltitudeValue;
-                    //}
                 }
                 initialPressure += 5;
                 Altitude = initialAltitude + (altitudeFraction * iterationIndex++);
@@ -86,18 +79,6 @@ namespace AutomatedDataInsert
                         3 => altitude = (levelFourInitialAltitudeValue += firstAltitudeFraction),
                         _ => altitude += 0,
                     };
-
-                    //if (i == 1 && pressure == 985)
-                    //    altitude = levelTwoInitialAltitudeValue;
-                    //if (i == 1 && pressure != 985)
-                    //    altitude += levelTwoFractionFromLevelOne;
-                    //if (i == 2)
-                    //    altitude += levelThreeFractionFromLevelTwo;
-                    //if (i == 3)
-                    //{
-                    //    levelFourInitialAltitudeValue += firstAltitudeFraction;
-                    //    altitude = levelFourInitialAltitudeValue;
-                    //}
                 }
                 altitude = (pressure == 985) ? (initialAltitude + firstAltitudeFraction) : ((initialAltitude + firstAltitudeFraction) + (altitudeFraction * iterationIndex++));
                 pressure += 5;
