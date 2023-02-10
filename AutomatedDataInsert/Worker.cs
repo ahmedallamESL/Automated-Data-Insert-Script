@@ -41,11 +41,11 @@ namespace AutomatedDataInsert
                 {
                     Console.WriteLine($"{initialPressure}\t\t{Altitude}\t\t{i}");
 
-                    var altitudeCase = i switch
+                    Altitude = i switch
                     {
-                        2 => Altitude += levelThreeFractionFromLevelTwo,
-                        3 => Altitude = (levelFourInitialAltitudeValue+=36),
-                        _ => Altitude += 0,
+                        2 => (Altitude + levelThreeFractionFromLevelTwo),
+                        3 => (levelFourInitialAltitudeValue += 36),
+                        _ => (Altitude + 0),
                     };
                 }
                 initialPressure += 5;
@@ -72,12 +72,12 @@ namespace AutomatedDataInsert
                 {
                     Console.WriteLine($"{pressure}\t\t{altitude}\t\t{i}");
 
-                    var altitudeCase = i switch
+                    altitude = i switch
                     {
-                        1 => altitude = (pressure == 985) ? levelTwoInitialAltitudeValue : (altitude + levelTwoFractionFromLevelOne),
-                        2 => altitude += levelThreeFractionFromLevelTwo,
-                        3 => altitude = (levelFourInitialAltitudeValue += firstAltitudeFraction),
-                        _ => altitude += 0,
+                        1 => (pressure == 985) ? levelTwoInitialAltitudeValue : (altitude + levelTwoFractionFromLevelOne),
+                        2 => (altitude + levelThreeFractionFromLevelTwo),
+                        3 => (levelFourInitialAltitudeValue += firstAltitudeFraction),
+                        _ => (altitude + 0),
                     };
                 }
                 altitude = (pressure == 985) ? (initialAltitude + firstAltitudeFraction) : ((initialAltitude + firstAltitudeFraction) + (altitudeFraction * iterationIndex++));
