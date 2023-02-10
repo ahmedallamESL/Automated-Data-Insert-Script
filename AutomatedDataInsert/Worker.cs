@@ -26,7 +26,7 @@ namespace AutomatedDataInsert
         private static void PopulateAllLevelsWithoutLevelOne()
         {
             int initialPressure = 950;
-            int Altitude = 470;
+            int altitude = 470;
             int initialAltitude = 470;
             int levelThreeFractionFromLevelTwo = 1000;
             int levelFourInitialAltitudeValue = 2516;
@@ -39,17 +39,17 @@ namespace AutomatedDataInsert
             {
                 for (int i = 2; i <= 4; i++)
                 {
-                    Console.WriteLine($"{initialPressure}\t\t{Altitude}\t\t{i}");
+                    Console.WriteLine($"{initialPressure}\t\t{altitude}\t\t{i}");
 
-                    Altitude = i switch
+                    altitude = i switch
                     {
-                        2 => (Altitude + levelThreeFractionFromLevelTwo),
+                        2 => (altitude + levelThreeFractionFromLevelTwo),
                         3 => (levelFourInitialAltitudeValue += 36),
-                        _ => (Altitude + 0),
+                        _ => (altitude + 0),
                     };
                 }
                 initialPressure += 5;
-                Altitude = initialAltitude + (altitudeFraction * iterationIndex++);
+                altitude = initialAltitude + (altitudeFraction * iterationIndex++);
             }
         }
 
